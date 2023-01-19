@@ -80,13 +80,14 @@ saveRDS(tabela, "presos_atos_golpistas.rds")
 write.csv(tabela, "presos_atos_golpistas.csv")
 
 
-#--  busca por query
-termo = "maria"
-tabela$nome[grepl(termo, tabela$nome, ignore.case = T)]
+#--  busca por nome
+termo = "eunice"
+# tabela$nome[grepl(termo, tabela$nome, ignore.case = T)]
+filter(tabela, grepl(termo, nome,ignore.case = T))
 # ----
 
 
-# cruzar dados com financiadores
+# cruzar dados d presos com os financiadores
 financiadores <- readLines('arquivos/financiadores.txt')  |> strsplit("\\n") |> unlist() |>
   str_remove("^ +") |> str_remove("^#.*") |> str_remove(",.*")
 

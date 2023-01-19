@@ -1,4 +1,4 @@
-# linhas comentadas - como sta e apróxima - serão ignoradas
+# linhas comentadas - como esta e a próxima - serão ignoradas. Fontes:
 # https://g1.globo.com/politica/noticia/2023/01/12/veja-lista-de-pessoas-e-empresas-apontadas-pela-agu-como-financiadoras-dos-atos-golpistas.ghtml
 # https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-pede-bloqueio-de-r-6-milhoes-em-bens-de-52-pessoas-e-7-empresas-que-financiaram-atos-golpistas/Cautelar.pdf
 #
