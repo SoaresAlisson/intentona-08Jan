@@ -1,5 +1,7 @@
 # linhas comentadas - como sta e apróxima - serão ignoradas
 # https://g1.globo.com/politica/noticia/2023/01/12/veja-lista-de-pessoas-e-empresas-apontadas-pela-agu-como-financiadoras-dos-atos-golpistas.ghtml
+# https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-pede-bloqueio-de-r-6-milhoes-em-bens-de-52-pessoas-e-7-empresas-que-financiaram-atos-golpistas/Cautelar.pdf
+#
 Adailton Gomes Vidal, de São Paulo (SP)
     Ademir Luis Graeff, de Missal (PR)
     Adoilto Fernandes Coronel, de Maracaju (MS)
