@@ -1,4 +1,4 @@
-# Intentona Bolsonarista - 08 de Jan
+# Intentona Bolsonarista - 08 de Janeiro
 
 - Lista com presos por dia ([rds](https://github.com/SoaresAlisson/intentona-08Jan/blob/main/presos_atos_golpistas.rds) e [csv](https://github.com/SoaresAlisson/intentona-08Jan/blob/main/presos_atos_golpistas.csv)) extraídos do site da seape.df. Versão [google drive](https://docs.google.com/spreadsheets/d/1f95WGIPm_qnQr1bNNV7KL8rUdCZaM6HRT1zJvLD3PsM/edit#gid=1557228783).
 - [arquivos pdf](https://github.com/SoaresAlisson/intentona-08Jan/tree/main/arquivos) com os presos. O padrão do nome é: mês numérico, dia e nome do arquivo no site
@@ -10,5 +10,6 @@ Há também busca por nome.
 Há ainda algumas pendências:
 - como a tabela é estruturada a partir de pdf não estruturado, é comum acontecer falhas que precisam ser corrigidas
 - Há pessoas cujo nome possui mais de uma grafia e isto ainda não foi resolvido
-- Substituir os NAs por "não"
-- faltam dados de alguns dias
+- Substituir os "NA" por "não"
+- Talvez faltem dados de alguns dias (mas não foram publicadas)
+- Não há separação entre local da prisão (Papuda ou Colmeia) ainda.
