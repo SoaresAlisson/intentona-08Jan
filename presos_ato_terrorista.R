@@ -81,7 +81,7 @@ write.csv(tabela, "presos_atos_golpistas.csv")
 
 
 #--  busca por nome
-termo = "eunice"
+termo = "Trevisani" # nomea ser buscado
 # tabela$nome[grepl(termo, tabela$nome, ignore.case = T)]
 filter(tabela, grepl(termo, nome,ignore.case = T))
 # ----
