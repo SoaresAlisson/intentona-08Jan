@@ -44,6 +44,8 @@ parser_tabela <- function(arqPDF){
   
 }
 
+arqsPDF <- list.files("arquivos", pattern = "^\\d{4}_.*pdf$") # somente um pdf
+
 # exemplo de tabela
 parser_tabela(arqsPDF[4]) |> str()
 
@@ -51,7 +53,7 @@ parser_tabela(arqsPDF[4]) |> str()
 ## criando um dataframe inicial com todos os nomes - nascimento e prisão
 nomeNascimento <- parser_tabela(arqsPDF[1]) |> select(nome, nascimento, prisao)
 
-for (i in 2:length(arqsPDF)){
+for (i in 2:length(arqsPDF[1:7])){
   nomeNascimento2 <- parser_tabela(arqsPDF[i]) |> select(nome,nascimento, prisao)
   nomeNascimento <- union(nomeNascimento, nomeNascimento2)
 }
@@ -64,9 +66,20 @@ for (i in 1:length(arqsPDF)){
   tabela2 <- parser_tabela(arqsPDF[i]) |> mutate({{nomeCol}} := "sim") |> select(nome, {nomeCol})
   tabela <- left_join(tabela, tabela2, by="nome")
 }
-tabela <- arrange(tabela, prisao, nome) 
+tabela <- arrange(tabela, prisao, nome) |> 
+  mutate(idade = lubridate::year(lubridate::as.period(lubridate::interval(start = nascimento, end = Sys.Date()))), .after = nascimento)
 # ----
 str(tabela)
+
+
+
+
+
+
+
+
+
+
 
 # salva arquivos csv e rds
 saveRDS(tabela, "presos_atos_golpistas.rds")

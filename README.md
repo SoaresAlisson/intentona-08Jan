@@ -2,10 +2,12 @@
 
 
 ## Arquivos:
-- Lista com presos por dia ([rds](https://github.com/SoaresAlisson/intentona-08Jan/blob/main/presos_atos_golpistas.rds) e [csv](https://github.com/SoaresAlisson/intentona-08Jan/blob/main/presos_atos_golpistas.csv)) extraídos do site da seape.df. Versão [google drive](https://docs.google.com/spreadsheets/d/1f95WGIPm_qnQr1bNNV7KL8rUdCZaM6HRT1zJvLD3PsM/edit#gid=1557228783).
+- Lista com presos por dia ([rds](https://github.com/SoaresAlisson/intentona-08Jan/blob/main/presos_atos_golpistas.rds) e [csv](https://github.com/SoaresAlisson/intentona-08Jan/blob/main/presos_atos_golpistas.csv)) extraídos do site da seape.df:
+  - No dia 20/01, a SEAPE mudou o modo de divulgação dos dados em PDF. Tal mudança se reflete na coluna deste dia
+<!-- Versão [google drive](https://docs.google.com/spreadsheets/d/1f95WGIPm_qnQr1bNNV7KL8rUdCZaM6HRT1zJvLD3PsM/edit#gid=1557228783). -->
 - [arquivos pdf](https://github.com/SoaresAlisson/intentona-08Jan/tree/main/arquivos) com os presos. O padrão do nome é: mês numérico, dia e nome do arquivo no site
 - script em R de extração dos dados no site da seape-df e de manipulação dos dados (ver abaixo)
-- [financiadores](https://github.com/SoaresAlisson/intentona-08Jan/blob/main/arquivos/financiadores.txt) (txt com dados e fonte dos dados referente aos financiadores)
+- Lista dos [financiadores](https://github.com/SoaresAlisson/intentona-08Jan/blob/main/arquivos/financiadores.txt) (txt com dados e fonte dos dados referente aos financiadores)
 
 ## Sobre os scripts
 
@@ -22,8 +24,8 @@ Processa e junta as tabelas que foram baixadas com a função baixar_pdfs
 
 Como a tabela é estruturada a partir de pdf não estruturado, é comum acontecer falhas que precisam ser corrigidas:
 
-- Há pessoas cujo nome possui mais de uma grafia e isto ainda não foi resolvido
-- Há nomes duplicados por a pessoa constar de mais de uma data de nascimento
+- Há 33 nomes duplicados por a pessoa constar de mais de uma data de nascimento
+- Há pessoas cujo nome possui mais de uma grafia
 - Talvez faltem dados dos primeiros dias (mas nem todos os dias tiveram relatórios publicadas)
 - Substituir os "NA" por "não"
 - ~~Não há especificação entre local da prisão (Papuda ou Colmeia) ainda~~
