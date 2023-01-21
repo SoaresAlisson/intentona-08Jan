@@ -49,7 +49,7 @@ nomeCol <- str_extract(mesDia, "^\\d{4}") |> str_replace("^(\\d{2})(\\d{2})", "\
 novaTabela <- union(CDPII, PFDF) |> union(CIME) |> mutate({{nomeCol}} := prisao) 
 str(novaTabela)
 
-tabelaNova <- left_join(tabela, 
+tabelaNova <- full_join(tabela, 
                         select(novaTabela, -nascimento, -prisao, -ano), 
                         by="nome") |>
   relocate(UF, .after = nascimento) #|> head(15)
