@@ -15,7 +15,6 @@ consulta a página de presos na seape-df e retorna e baixa o pdf com a lista de 
 Processa e junta as tabelas que foram baixadas
 - Há busca por nome.
 
-
 ## Pendências
 
 Como a tabela é estruturada a partir de pdf não estruturado, é comum acontecer falhas que precisam ser corrigidas:

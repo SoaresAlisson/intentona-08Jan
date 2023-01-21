@@ -57,17 +57,12 @@ for (i in 2:length(arqsPDF)){
 }
 nomeNascimento <- arrange(nomeNascimento, nome)
 
-parser_tabela(arqsPDF[3]) |> filter(nome == nomesDuplicados[1])
-View(parser_tabela(arqsPDF[3]))
-arqPDF=arqsPDF[4]
-
 
 tabela <- nomeNascimento
 for (i in 1:length(arqsPDF)){
   nomeCol <- str_extract(arqsPDF[i], "^\\d{4}") |> str_replace("^(\\d{2})(\\d{2})", "\\2.\\1") 
   tabela2 <- parser_tabela(arqsPDF[i]) |> mutate({{nomeCol}} := "sim") |> select(nome, {nomeCol})
   tabela <- left_join(tabela, tabela2, by="nome")
-  tabela <- mutate(tabela, {{nomeCol}} := tidyr::replace_na("não"))
 }
 tabela <- arrange(tabela, prisao, nome) 
 # ----
