@@ -23,7 +23,8 @@ urlsPDFs <- pagina |> rvest::html_elements("a") |> rvest::html_attr("href") |> s
 
 
 # checa se o arquivo já foi baixado
-arqsPDF <- list.files("arquivos", pattern = "^\\d{4}_.*pdf$") # somente um pdf
+arqPDFseape <- function()(list.files("arquivos", pattern = "^\\d{4}_.*pdf$"))
+arqsPDF <- arqPDFseape()
 
 checarArquivo <- function(arquivo){
   nomeNovoArquivoPDF <- paste0(mesDia, "_",

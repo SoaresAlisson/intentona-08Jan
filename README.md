@@ -5,7 +5,7 @@
 - Lista com presos por dia ([rds](https://github.com/SoaresAlisson/intentona-08Jan/blob/main/presos_atos_golpistas.rds) e [csv](https://github.com/SoaresAlisson/intentona-08Jan/blob/main/presos_atos_golpistas.csv)) extraídos do site da seape.df:
   - No dia 20/01, a SEAPE mudou o modo de divulgação dos dados em PDF, incluindo a partir de então tabela com pessoas liberadas mediante monitoração por tornozeleira eletrônica. Tal mudança se reflete na coluna deste dia, que adotamos notação diferente:
     - ao invés de `NA` para não, e `sim` para a presença da pessoa, como nos dias anteriores:
-    - A partir do dia 20/01, `F` indica presídio feminino (Penitenciária Feminina do Distrito Federal), `M` indica os homens no Centro de Detenção Provisória II e `M.E.` indica "monitoramento eletrônico", ou tornozeleira eletrônica.
+    - A partir do dia 20/01, `F` indica presídio feminino (Penitenciária Feminina do Distrito Federal), `M` indica os homens no Centro de Detenção Provisória II e `T.E.` indica "tornozeleira eletrônica", isto é, o monitoramento eletrônico.
 <!-- Versão [google drive](https://docs.google.com/spreadsheets/d/1f95WGIPm_qnQr1bNNV7KL8rUdCZaM6HRT1zJvLD3PsM/edit#gid=1557228783). -->
 - [arquivos pdf](https://github.com/SoaresAlisson/intentona-08Jan/tree/main/arquivos) com os presos. O padrão do nome é: mês numérico, dia e nome do arquivo no site
 - script em R de extração dos dados no site da seape-df e de manipulação dos dados (ver abaixo)

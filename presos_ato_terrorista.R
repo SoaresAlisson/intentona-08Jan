@@ -53,7 +53,7 @@ parser_tabela(arqsPDF[4]) |> str()
 ## criando um dataframe inicial com todos os nomes - nascimento e prisão
 nomeNascimento <- parser_tabela(arqsPDF[1]) |> select(nome, nascimento, prisao)
 
-for (i in 2:length(arqsPDF[1:7])){
+for (i in 2:length(arqsPDF)){
   nomeNascimento2 <- parser_tabela(arqsPDF[i]) |> select(nome,nascimento, prisao)
   nomeNascimento <- union(nomeNascimento, nomeNascimento2)
 }
@@ -62,12 +62,13 @@ nomeNascimento <- arrange(nomeNascimento, nome)
 
 tabela <- nomeNascimento
 for (i in 1:length(arqsPDF)){
-  nomeCol <- str_extract(arqsPDF[i], "^\\d{4}") |> str_replace("^(\\d{2})(\\d{2})", "\\2.\\1") 
-  tabela2 <- parser_tabela(arqsPDF[i]) |> mutate({{nomeCol}} := "sim") |> select(nome, {nomeCol})
-  tabela <- left_join(tabela, tabela2, by="nome")
+    nomeCol <- str_extract(arqsPDF[i], "^\\d{4}") |> str_replace("^(\\d{2})(\\d{2})", "\\2.\\1") 
+    tabela2 <- parser_tabela(arqsPDF[i]) |> mutate({{nomeCol}} := "sim") |> select(nome, {nomeCol})
+    tabela <- left_join(tabela, tabela2, by="nome")
 }
 tabela <- arrange(tabela, prisao, nome) |> 
-  mutate(idade = lubridate::year(lubridate::as.period(lubridate::interval(start = nascimento, end = Sys.Date()))), .after = nascimento)
+    mutate(idade = lubridate::year(lubridate::as.period(lubridate::interval(start = nascimento, end = Sys.Date()))), 
+           .after = nascimento)
 # ----
 str(tabela)
 
@@ -90,6 +91,7 @@ termo = "zambiasi" # nomea ser buscado
 # tabela$nome[grepl(termo, tabela$nome, ignore.case = T)]
 filter(tabela, grepl(termo, nome,ignore.case = T))
 # ----
+
 
 # cruzar dados de presos com os financiadores
 financiadores <- readLines('arquivos/financiadores.txt')  |> strsplit("\\n") |> unlist() |>
