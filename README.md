@@ -24,10 +24,10 @@ Processa e junta as tabelas que foram baixadas com a função baixar_pdfs
 
 ## Pendências
 
-Como a tabela é estruturada a partir de pdf não estruturado, é comum acontecer falhas que precisam ser corrigidas:
+Como a tabela é estruturada a partir de pdf não estruturado, é comum acontecer falhas que ainda precisam ser corrigidas:
 
-- Há 33 nomes duplicados por a pessoa constar de mais de uma data de nascimento
-- Há pessoas cujo nome possui mais de uma grafia
+- Há 27 nomes duplicados por a pessoa ter mais de uma data de nascimento 
+- Há pessoas cujo nome possui mais de uma grafia: pretende-se indicar nomes parecidos em nova coluna
 - Talvez faltem dados dos primeiros dias (mas nem todos os dias tiveram relatórios publicadas)
 - Substituir os "NA" por "não"
 - ~~Não há especificação entre local da prisão (Papuda ou Colmeia) ainda~~
