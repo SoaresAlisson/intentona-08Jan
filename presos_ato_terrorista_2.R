@@ -67,15 +67,22 @@ parser5 <- function(tabela_antiga, dataMesDia){
 }
 
 
-tabelaNova <- mutate(tabela, UF = as.character(NA))
-tabelaNova <- parser5(Tabela, "0120") 
-tabelaNova <- parser5(Tabela, "0122") 
-tabelaNova <- parser5(Tabela, "0123") 
+Tabela <- mutate(tabela, UF = as.character(NA))
+Tabela <- parser5(Tabela, "0120") 
+Tabela <- parser5(Tabela, "0122") 
+Tabela <- parser5(Tabela, "0123") 
 
-str(tabelaNova)
+View(Tabela)
+str(Tabela)
+
+# processamento
+nrow(Tabela) 
+nrow(unique(Tabela))
+
+Tabela <- unique(Tabela)
 
  
 
 # salva arquivos csv e rds
-saveRDS(tabelaNova, "presos_atos_golpistas.rds")
-write.csv(tabelaNova, "presos_atos_golpistas.csv")
+saveRDS(Tabela, "presos_atos_golpistas.rds")
+write.csv(Tabela, "presos_atos_golpistas.csv")
