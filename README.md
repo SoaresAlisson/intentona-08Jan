@@ -21,12 +21,27 @@ Processa e junta as tabelas que foram baixadas com a função baixar_pdfs
 - Há busca por nome
 - Cruza estes nomes dos presos com a lista de financiadores divulgada [aqui](https://g1.globo.com/politica/noticia/2023/01/12/veja-lista-de-pessoas-e-empresas-apontadas-pela-agu-como-financiadoras-dos-atos-golpistas.ghtml), sendo eles no momento:
   - "Michely Paiva Alves", "Patricia dos Santos Alberto Lima", "Jorge Rodrigues Cunha" e "Vanderson Alves Nunes"
+  
+A versão 2 do script lida com arquivos a partir do dia 20/01.
+
+Esta versão retira duplicados com base nos seguintes critérios:
+- Ordenando os nomes em ordem alfabética, se o nome atual e o nome anterior são iguais E a data de nascimento da linha atual é um valor faltante (_missing_, isto é, um `NA`), a linha atual é excluída.
+- Ordenando os nomes em ordem alfabética, se o nome atual e o próximo nome são iguais, E se a data de nascimento é o ano 1990 (foram várias ocorrências com a data de 01.01.1990), esta linha é excluída.
+
+Com estas medidas os duplicados caíram de 27 para 16. Estes nomes que permanecem duplicados o são por possuírem mais de uma data de nascimento. Para ver quais são eles, rode o seguinte comando:
+
+```
+Tabela <- readRDS("presos_atos_golpistas.rds")
+nomesDuplicados <- Tabela$nome[duplicated(Tabela$nome)] # nomes duplicadas
+nomesDuplicados 
+for(i in nomesDuplicados){print(filter(tabelaNova2, nome == i))}
+```
 
 ## Pendências
 
 Como a tabela é estruturada a partir de pdf não estruturado, é comum acontecer falhas que ainda precisam ser corrigidas:
 
-- Há 27 nomes duplicados por a pessoa ter mais de uma data de nascimento 
+- ~~Há 27 nomes duplicados por a pessoa ter mais de uma data de nascimento~~ 
 - Há pessoas cujo nome possui mais de uma grafia: pretende-se indicar nomes parecidos em nova coluna
 - Talvez faltem dados dos primeiros dias (mas nem todos os dias tiveram relatórios publicadas)
 - Substituir os "NA" por "não"

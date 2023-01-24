@@ -75,12 +75,18 @@ Tabela <- parser5(Tabela, "0123")
 View(Tabela)
 str(Tabela)
 
-# processamento
-nrow(Tabela) 
-nrow(unique(Tabela))
+# Pós processamento
 
-Tabela <- unique(Tabela)
+## retirando linhas duplicadas
+## todo: retirar dupĺicados ao montar a primeira lista de nomes
+Tabela <- arrange(Tabela, nome) |>
+  mutate(repetido = (nome == lag(nome) & is.na(nascimento))) |>
+  filter(repetido != T) |>
+  mutate(repetido = (nome == lead(nome) & (lubridate::year(nascimento) == 1900) )) |> filter(repetido != T) |>
+  select(-repetido)
 
+nrow(Tabela) == nrow(unique(Tabela)) # checando se há linhas duplicadas
+Tabela <- unique(Tabela) # retirando lihas duplicadas
  
 
 # salva arquivos csv e rds
