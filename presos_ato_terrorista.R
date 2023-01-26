@@ -87,9 +87,9 @@ saveRDS(tabela, "presos_atos_golpistas.rds")
 write.csv(tabela, "presos_atos_golpistas.csv")
 
 #--  busca por nome
-termo = "zambiasi" # nomea ser buscado
+termo = "rafael" # nomea ser buscado
 # tabela$nome[grepl(termo, tabela$nome, ignore.case = T)]
-filter(tabela, grepl(termo, nome,ignore.case = T))
+filter(Tabela, grepl(termo, nome,ignore.case = T))
 # ----
 
 
@@ -97,5 +97,5 @@ filter(tabela, grepl(termo, nome,ignore.case = T))
 financiadores <- readLines('arquivos/financiadores.txt')  |> strsplit("\\n") |> unlist() |>
   str_remove("^ +") |> str_remove("^#.*") |> str_remove(",.*")
 
-tabela$nome[tabela$nome %in% financiadores]
+Tabela$nome[Tabela$nome %in% financiadores]
 # ----

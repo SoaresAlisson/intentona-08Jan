@@ -14,13 +14,13 @@
 ## Sobre os scripts
 
 ### script [baixar_pdfs.R](https://github.com/SoaresAlisson/intentona-08Jan/blob/main/baixar_pdfs.R): 
-consulta a página de presos na seape-df e retorna e baixa o pdf com a lista de presos. Ao início do nome do pdf é acrescido o mês/dia. ATUALIZAÇÂO: O script funcionava coletando o pdf disponível na página, mas dias como 20/01 constam com mais de um pdf. A parte de download será reavaliada.
+consulta a página de presos na seape-df e retorna e baixa o pdf com a lista de presos. Ao início do nome do pdf é acrescido o mês/dia. ATUALIZAÇÂO: O script funcionava coletando o pdf disponível na página, mas dias como 20/01 constam com mais de um pdf. A parte de download foi atualizada.
 
 ### script [presos_ato_terrorista.R](https://github.com/SoaresAlisson/intentona-08Jan/blob/main/presos_ato_terrorista.R)
 Processa e junta as tabelas que foram baixadas com a função baixar_pdfs
 - Há busca por nome
 - Cruza estes nomes dos presos com a lista de financiadores divulgada [aqui](https://g1.globo.com/politica/noticia/2023/01/12/veja-lista-de-pessoas-e-empresas-apontadas-pela-agu-como-financiadoras-dos-atos-golpistas.ghtml), sendo eles no momento:
-  - "Michely Paiva Alves", "Patricia dos Santos Alberto Lima", "Jorge Rodrigues Cunha" e "Vanderson Alves Nunes"
+  - Jorge Rodrigues Cunha", "Michely Paiva Alves", "Patricia dos Santos Alberto Lima" "Sheila Mantovanni", "Vanderson Alves Nunes"."  
   
 A versão 2 do script lida com arquivos a partir do dia 20/01.
 

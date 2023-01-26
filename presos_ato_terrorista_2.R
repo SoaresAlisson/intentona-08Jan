@@ -66,11 +66,12 @@ parser5 <- function(tabela_antiga, dataMesDia){
     relocate(UF, .after = nome) 
 }
 
-
+# append das novas tabelas
 Tabela <- mutate(tabela, UF = as.character(NA))
 Tabela <- parser5(Tabela, "0120") 
 Tabela <- parser5(Tabela, "0122") 
-Tabela <- parser5(Tabela, "0123") 
+Tabela <- parser5(Tabela, "0123")
+Tabela <- parser5(Tabela, "0125") 
 
 View(Tabela)
 str(Tabela)
@@ -83,10 +84,11 @@ Tabela <- arrange(Tabela, nome) |>
   mutate(repetido = (nome == lag(nome) & is.na(nascimento))) |>
   filter(repetido != T) |>
   mutate(repetido = (nome == lead(nome) & (lubridate::year(nascimento) == 1900) )) |> filter(repetido != T) |>
-  select(-repetido)
+  select(-repetido) |> 
+  unique() # retirando lihas duplicadas
 
 nrow(Tabela) == nrow(unique(Tabela)) # checando se há linhas duplicadas
-Tabela <- unique(Tabela) # retirando lihas duplicadas
+
  
 
 # salva arquivos csv e rds
