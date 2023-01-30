@@ -30,11 +30,14 @@ parser2_tabela <- function(arqPDF){
 }
 
 parser3 <- function(Busca, Prisao, PDFsAtual){
-  # Busca: termo que filtra o arquivo: "cdp", "pfdf" ou "cime"
+  # Busca: termo que filtra o arquivo: "cdp", "pfdf" ou "cime". busca fuzzy
   # Prisao: termo correspondente a ser acrescido na coluna
-      parser2_tabela(
-        grep(Busca, PDFsAtual, value = T, ignore.case = T)) |> 
-        mutate(prisao= Prisao)
+    parser2_tabela(
+          agrep(Busca, 
+                gsub("(.*)(pdf$)", "\\1", PDFsAtual), 
+                max.distance =1, value = TRUE, ignore.case = TRUE) %>% 
+            gsub("(.*)", "\\1pdf", .)) |>
+    mutate(prisao = Prisao)
 }
 
 parser4 <-function(MesDia){
@@ -50,7 +53,7 @@ parser4 <-function(MesDia){
 }
 
 # testando a função acima
-parser4("0123") |> str()
+parser4("0130") |> str()
 
 # Junta tabela antiga com a do dia especificado no argumento dataMesDia 2) complementa nascimento onde havia NAs
 parser5 <- function(tabela_antiga, dataMesDia){
@@ -66,12 +69,13 @@ parser5 <- function(tabela_antiga, dataMesDia){
     relocate(UF, .after = nome) 
 }
 
-# append das novas tabelas
+# append das novos dias
 Tabela <- mutate(tabela, UF = as.character(NA))
 Tabela <- parser5(Tabela, "0120") 
 Tabela <- parser5(Tabela, "0122") 
 Tabela <- parser5(Tabela, "0123")
 Tabela <- parser5(Tabela, "0125") 
+Tabela <- parser5(Tabela, "0130")
 
 View(Tabela)
 str(Tabela)
@@ -85,7 +89,7 @@ Tabela <- arrange(Tabela, nome) |>
   filter(repetido != T) |>
   mutate(repetido = (nome == lead(nome) & (lubridate::year(nascimento) == 1900) )) |> filter(repetido != T) |>
   select(-repetido) |> 
-  unique() # retirando lihas duplicadas
+  unique() # retirando linhas duplicadas
 
 nrow(Tabela) == nrow(unique(Tabela)) # checando se há linhas duplicadas
 

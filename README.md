@@ -28,7 +28,7 @@ Esta versão retira duplicados com base nos seguintes critérios:
 - Ordenando os nomes em ordem alfabética, se o nome atual e o nome anterior são iguais E a data de nascimento da linha atual é um valor faltante (_missing_, isto é, um `NA`), a linha atual é excluída.
 - Ordenando os nomes em ordem alfabética, se o nome atual e o próximo nome são iguais, E se a data de nascimento é o ano 1990 (foram várias ocorrências com a data de 01.01.1990), esta linha é excluída.
 
-Com estas medidas os duplicados caíram de 27 para 16. Estes nomes que permanecem duplicados o são por possuírem mais de uma data de nascimento. Para ver quais são eles, rode o seguinte comando:
+Com estas medidas, os duplicados caíram de 27 para 16. Estes nomes que permanecem duplicados o são por possuírem mais de uma data de nascimento. Para ver quais são eles, rode o seguinte comando:
 
 ```
 Tabela <- readRDS("presos_atos_golpistas.rds")
@@ -41,7 +41,7 @@ for(i in nomesDuplicados){print(filter(tabelaNova2, nome == i))}
 
 Como a tabela é estruturada a partir de pdf não estruturado, é comum acontecer falhas que ainda precisam ser corrigidas:
 
-- ~~Há 27 nomes duplicados por a pessoa ter mais de uma data de nascimento~~ 
+- Há ~~27~~ 16 nomes duplicados por a pessoa ter mais de uma data de nascimento 
 - Há pessoas cujo nome possui mais de uma grafia: pretende-se indicar nomes parecidos em nova coluna
 - Talvez faltem dados dos primeiros dias (mas nem todos os dias tiveram relatórios publicadas)
 - Substituir os "NA" por "não"
